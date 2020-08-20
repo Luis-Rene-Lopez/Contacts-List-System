@@ -28,4 +28,12 @@ class HomeController extends Controller
         $contacts = Contacts::paginate(10);
         return view('home', compact('contacts') );
     }
+
+    public function edit($id)
+    {
+        $contact = Contacts::findOrFail($id);
+        return view('edit', compact('contact'));
+    }
+
+    
 }

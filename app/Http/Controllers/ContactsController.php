@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contacts;
+use Illuminate\Support\Facades\Mail;
 
 class ContactsController extends Controller
 {
@@ -12,10 +13,6 @@ class ContactsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +30,12 @@ class ContactsController extends Controller
 
         $db->save();
 
+        Mail::raw('We added you in our contact list. Thank you.', function($message){
+           $message->to( request('email') );
+        });
+
         return back()->with('message', 'New Contact added!');
+
     }
 
     /**
@@ -78,7 +80,16 @@ class ContactsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $db = Contacts::findOrFail($id);
+
+        $db->firstName = $request->firstName;
+        $db->lastName = $request->lastName;
+        $db->email = $request->email;
+        $db->contactNumber = $request->contactNumber; 
+        $db->save();
+
+        return back()->with('message', 'contact updated !');
+
     }
 
     /**
@@ -89,6 +100,8 @@ class ContactsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $db = Contacts::findOrFail($id);
+        $db->delete();
+        return back()->with('message', 'contact deleted !');
     }
 }

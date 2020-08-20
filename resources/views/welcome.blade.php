@@ -6,13 +6,20 @@
 
         <title>Laravel</title>
 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
+            html { 
+                background: url('https://images.pexels.com/photos/6357/coffee-cup-desk-pen.jpg?cs=srgb&dl=pexels-kaboompics-com-6357.jpg&fm=jpg') no-repeat center fixed;
+                background-size: cover;
+             }
+
+             body {
+               
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -81,18 +88,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a style='color:black; text-decoration:none ;' href='home'>Contact List System</a>
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                   
+                       <p style='font-size:20px;'> GitHub </p> 
+                  
+                   <a href="https://github.com/Luis-Rene-Lopez/Contacts-List-System">
+                    <i style='font-size:50px;' class='fab fa-github'></i>
+                   </a>
                 </div>
             </div>
         </div>

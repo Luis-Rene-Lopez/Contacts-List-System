@@ -1,14 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
 
-
+  <div class="container">
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-    Create new contact
-  </button>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+      Create new contact +
+    </button>
+  </div> <br>
+
   
+  <div class="container">
+
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
@@ -84,8 +87,19 @@
         <td>{{ $item->lastName }}</td>
         <td>{{ $item->email }}</td>
         <td>{{ $item->contactNumber }}</td>
-        <td><button class='btn btn-warning'>Edit</button></td>
-        <td><button class='btn btn-danger'>Delete</button></td>
+        <td>
+            <a href='edit/{{$item->id}}'>
+              <button class='btn btn-warning'>Edit</button>
+            </a>
+        </td>
+        <td>
+            <form method="post" action='{{ route("delete.contact", $item->id) }}'>
+                @method('delete')
+                @csrf
+                <button class='btn btn-danger'>Delete</button>
+            </form>
+        </td>
+        
       </tr>
 
       @endforeach
@@ -93,6 +107,7 @@
     </tbody>
   </table>
   
+  {{ $contacts->links() }}
   
 </div>
 @endsection
