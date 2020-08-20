@@ -1,6 +1,6 @@
 # Contacts-List-System
 
-Instalation Process:
+Installation Process:
 
 1.Once this repository has been cloned or downloaded go to I'ts root directory
 2.Run "composer install" in order to install all php dependencies
